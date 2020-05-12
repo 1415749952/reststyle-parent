@@ -1,0 +1,9 @@
+# Project exclude paths
+/reststyle-commom/target/
+/reststyle-config/target/
+/reststyle-dao/target/
+/reststyle-domain/target/
+/reststyle-dto/target/
+/reststyle-service/target/
+/reststyle-utils/target/
+/reststyle-web/target/
