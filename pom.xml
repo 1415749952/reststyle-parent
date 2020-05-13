@@ -22,6 +22,7 @@
         <module>reststyle-service</module>
         <module>reststyle-utils</module>
         <module>reststyle-web</module>
+        <module>reststyle-dto</module>
     </modules>
 
     <properties>
