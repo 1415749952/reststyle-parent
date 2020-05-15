@@ -1,7 +1,5 @@
 package cn.ccsu.response;
 
-import com.github.pagehelper.Page;
-
 import java.util.List;
 
 /**

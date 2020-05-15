@@ -21,7 +21,7 @@ public class PageBaseInfo
     @JsonView(GeneralViews.RestView.class)
     private List rows;
     /**
-     * 当前页
+     * 当前页数
      */
     @JsonView(GeneralViews.RestView.class)
     private int pageNum;
