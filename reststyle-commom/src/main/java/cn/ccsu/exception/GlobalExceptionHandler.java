@@ -10,10 +10,12 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -100,5 +102,15 @@ public class GlobalExceptionHandler
         return ResultUtil.error(ResultCode.METHOD_NOT_ALLOWED, exception.getMessage());
     }
 
-
+    /**
+     * sql语句异常
+     * @param exception
+     * @return
+     */
+    @ExceptionHandler(value = SQLException.class)
+    public RestResult sqlException(SQLException exception)
+    {
+        log.error(exception.toString());
+        return ResultUtil.error(ResultCode.METHOD_NOT_ALLOWED, exception.getMessage());
+    }
 }
