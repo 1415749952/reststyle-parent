@@ -19,6 +19,16 @@
             <artifactId>reststyle-domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>cn.ccsu</groupId>
+            <artifactId>reststyle-commom</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.19.Final</version>
+        </dependency>
     </dependencies>
 
     <build>

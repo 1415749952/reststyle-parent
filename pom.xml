@@ -23,6 +23,7 @@
         <module>reststyle-utils</module>
         <module>reststyle-web</module>
         <module>reststyle-dto</module>
+        <module>reststyle-scheduler</module>
     </modules>
 
     <properties>

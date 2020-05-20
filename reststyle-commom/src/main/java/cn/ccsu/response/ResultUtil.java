@@ -41,11 +41,11 @@ public class ResultUtil
      * @param pageable  分页对象 这里使用的是PageHelper自带的com.github.pagehelper.Page类
      * @return
      */
-    public static RestResult success(List queryList, Page pageable)
+/*    public static RestResult success(List queryList, Page pageable)
     {
         PageBaseInfo pageBaseInfo = new PageBaseInfo(queryList, pageable.getPageNum(), pageable.getPageSize(), pageable.getTotal());
         return new RestResult(true, ResultCode.OK.getCode(), pageBaseInfo, ResultCode.OK.getMessage());
-    }
+    }*/
 
     /**
      * 失败后，返回没有错误数据
