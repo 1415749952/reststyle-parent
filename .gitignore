@@ -7,3 +7,12 @@
 /reststyle-service/target/
 /reststyle-utils/target/
 /reststyle-web/target/
+/reststyle-parent.iml
+/reststyle-commom.iml
+/reststyle-config.iml
+/reststyle-dao.iml
+/reststyle-domain.iml
+/reststyle-dto.iml
+/reststyle-service.iml
+/reststyle-utils.iml
+/reststyle-web.iml
