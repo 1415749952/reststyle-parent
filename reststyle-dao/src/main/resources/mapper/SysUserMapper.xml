@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ccsu.mapper.security.SysUserMapper">
+    <resultMap id="SysUserMap" type="cn.ccsu.domain.security.SysUser">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="is_account_non_expired" jdbcType="INTEGER" property="isAccountNonExpired"/>
+        <result column="is_account_non_locked" jdbcType="INTEGER" property="isAccountNonLocked"/>
+        <result column="is_credentials_non_expired" jdbcType="INTEGER" property="isCredentialsNonExpired"/>
+        <result column="is_enabled" jdbcType="INTEGER" property="isEnabled"/>
+    </resultMap>
+    <resultMap id="SysRoleMap" type="cn.ccsu.domain.security.SysRole">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
+        <collection property="authorities" ofType="cn.ccsu.domain.security.SysAuthority" select="findResourcesBySysRoleId" column="id">
+            <id column="id" jdbcType="INTEGER" property="id"/>
+            <result column="authority_name" jdbcType="VARCHAR" property="authorityName"/>
+            <result column="authority" jdbcType="VARCHAR" property="authority"/>
+        </collection>
+
+    </resultMap>
+    <resultMap id="SysAuthorityMap" type="cn.ccsu.domain.security.SysAuthority">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="authority_name" jdbcType="VARCHAR" property="authorityName"/>
+        <result column="authority" jdbcType="VARCHAR" property="authority"/>
+    </resultMap>
+
+
+
+    <select id="findByUsername" resultMap="SysUserMap">
+        select * from account where username = #{username}
+    </select>
+
+
+    <select id="findRolesBySysUserId" resultMap="SysRoleMap">
+        select role.id,role.role_name
+        from account_role,role
+        where account_role.account_id = #{id}
+        and account_role.role_id = role.id
+    </select>
+
+    <select id="findResourcesBySysRoleId" resultMap="SysAuthorityMap">
+        select authority.id,authority.authority,authority.authority_name
+        from authority,role_authority
+        where role_authority.role_id = #{id}
+        and role_authority.authority_id = authority.id
+    </select>
+
+</mapper>

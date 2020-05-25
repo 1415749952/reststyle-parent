@@ -1,6 +1,6 @@
 package cn.ccsu.vo;
 
-import cn.ccsu.response.GeneralViews;
+import cn.ccsu.utils.responseUtils.GeneralViews;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 

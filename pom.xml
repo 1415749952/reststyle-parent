@@ -16,7 +16,6 @@
 
     <modules>
         <module>reststyle-commom</module>
-        <module>reststyle-config</module>
         <module>reststyle-dao</module>
         <module>reststyle-domain</module>
         <module>reststyle-service</module>
