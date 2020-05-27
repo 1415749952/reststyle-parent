@@ -1,7 +1,14 @@
 package cn.ccsu.dto;
 
+import cn.ccsu.commom.constraint.ValidateEnum;
+import cn.ccsu.commom.constraint.group.Update;
+import cn.ccsu.commom.enums.Sex;
 import lombok.Data;
-import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,10 +22,19 @@ import org.hibernate.validator.constraints.NotBlank;
 @Data
 public class AccountDTO
 {
+    /*
+     * 只有分组为update的时候校验,其他不校验
+     * 使用方法 public RestResult update(@PathVariable String id, @Validated(value = {Update.class}) @RequestBody AccountDTO accountDTO)
+     *
+     * @NotBlank(message = "用户名不能为空！",groups = Update.class)
+     * private String id;
+     */
+
+
+
     @NotBlank(message = "用户名不能为空！")
     private String username;
 
-    //@ApiModelProperty("用户密码")//生成接口文档swagger。
     @NotBlank(message = "密码不能为空")
     private String password;
 
@@ -27,4 +43,12 @@ public class AccountDTO
     private String telephone;
 
     private String email;
+
+    @NotNull(message = "age不能为null")
+    @Min(value = 1, message = "年龄不符合要求")
+    @Max(value = 200, message = "年龄不符合要求")
+    private Integer age;
+
+    @ValidateEnum(clazz = Sex.class, method = "getValue", message = "sex参数错误")
+    private String sex;
 }

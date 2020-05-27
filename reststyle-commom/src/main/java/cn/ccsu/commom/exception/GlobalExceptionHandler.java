@@ -74,9 +74,10 @@ public class GlobalExceptionHandler
         }
         if (CollectionUtils.isEmpty(validationErrorEntities))
         {
-
+            return ResultUtil.error(ResultCode.PARAM_IS_INVALID, validationErrorEntities, ResultCode.PARAM_IS_INVALID.getMessage());
         }
-        return ResultUtil.error(ResultCode.PARAM_IS_INVALID, validationErrorEntities, ResultCode.PARAM_IS_INVALID.getMessage());
+        String message = validationErrorEntities.get(0).get("message");
+        return ResultUtil.error(ResultCode.PARAM_IS_INVALID, validationErrorEntities, message);
     }
 
     /**

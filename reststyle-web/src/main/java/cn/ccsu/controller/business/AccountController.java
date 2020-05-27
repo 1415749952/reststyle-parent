@@ -1,5 +1,10 @@
 package cn.ccsu.controller.business;
 
+import cn.ccsu.commom.annotation.OperationLogDetail;
+import cn.ccsu.commom.constraint.group.Update;
+import cn.ccsu.commom.constraint.validator.ValidList;
+import cn.ccsu.commom.enums.OperationType;
+import cn.ccsu.commom.enums.OperationUnit;
 import cn.ccsu.condition.AccountCondition;
 import cn.ccsu.dto.AccountDTO;
 import cn.ccsu.utils.requestUtils.PageParam;
@@ -9,11 +14,13 @@ import cn.ccsu.service.business.AccountService;
 import cn.ccsu.vo.AccountVO;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.github.pagehelper.PageInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -25,6 +32,7 @@ import java.util.List;
  * @Date: 2020-05-20
  * @Time: 16:23
  */
+@Slf4j
 @RestController
 @RequestMapping("/account")
 public class AccountController
@@ -41,6 +49,7 @@ public class AccountController
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @JsonView(AccountVO.AccountListView.class)
+    @OperationLogDetail(detail = "查询用户list", level = 3, operationType = OperationType.SELECT, operationUnit = OperationUnit.USER)
     public RestResult query(AccountCondition accountCondition, PageParam pageParam)
     {
         PageInfo<AccountVO> query = accountService.query(accountCondition, pageParam);
@@ -76,6 +85,22 @@ public class AccountController
         Integer accountId = accountService.creatAccount(accountDTO);
         return ResultUtil.success();
     }
+
+
+    /**
+     * 新增用户
+     *
+     * @param accountDTOs
+     * @return
+     */
+    @PostMapping("/addList")
+    @ResponseStatus(HttpStatus.OK)
+    public RestResult createMany(@Valid @RequestBody ValidList<AccountDTO> accountDTOs)
+    {
+        log.info("{}", accountDTOs);
+        return ResultUtil.success();
+    }
+
 
     /**
      * 修改一个用户

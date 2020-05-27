@@ -40,4 +40,14 @@ public class AccountSecurityUtil
             return null;
         }
     }
+
+    /**
+     * 获取当前用户Id
+     *
+     * @return
+     */
+    public static String getLoginUserId()
+    {
+        return getLoginUser().getId();
+    }
 }
