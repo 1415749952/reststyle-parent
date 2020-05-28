@@ -99,7 +99,7 @@ public class LogAspect
             // 请求的参数
             operLog.setRequestParam(getRequestParamer(request, joinPoint));
             operLog.setResponseParam(JacksonUtil.object2Json(keys));
-            operLog.setIp(IPUtil.getIP(request));
+            operLog.setIp(IPUtil.getIpAddress(request));
             operLog.setUrl(request.getRequestURI());
             operLog.setRequestTime(new Date());
             operLog.setVersion(operVer);
@@ -145,7 +145,7 @@ public class LogAspect
             excepLog.setExceptionName(e.getClass().getName());
             excepLog.setExceptionMessage(e.toString());
             excepLog.setUrl(request.getRequestURI());
-            excepLog.setIp(IPUtil.getIP(request));
+            excepLog.setIp(IPUtil.getIpAddress(request));
             excepLog.setVersion(operVer);
             excepLog.setOccurTime(new Date());
             excepLog.setUserId(AccountSecurityUtil.getLoginUserId());
