@@ -3,7 +3,7 @@ package cn.ccsu.commom.constraint.validator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.Method;
-import cn.ccsu.commom.constraint.ValidateEnum;
+import cn.ccsu.commom.constraint.validator.enums.ValidateEnum;
 /**
  * Created with IntelliJ IDEA.
  * Description:

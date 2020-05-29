@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.MapLikeType;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import java.util.Map;
  * @Date: 2020-03-02
  * @Time: 12:06
  */
- @Slf4j
+@Slf4j
 public class JacksonUtil
 {
     private static final ObjectMapper objectMapper;
@@ -131,5 +132,27 @@ public class JacksonUtil
             log.error(e.getMessage(), e);
         }
         return null;
+    }
+
+    /**
+     * 判断一个字符串是不是json字符串
+     *
+     * @param jsonString
+     * @return
+     */
+    public static boolean isJson(String jsonString)
+    {
+        if (StringUtils.isBlank(jsonString))
+        {
+            return false;
+        }
+        else
+        {
+            if (convertJson2Map(jsonString) == null && convertJson2List(jsonString) == null)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-package cn.ccsu.commom.constraint;
+package cn.ccsu.commom.constraint.validator.enums;
 
 import cn.ccsu.commom.constraint.validator.EnumValidator;
 

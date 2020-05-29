@@ -20,7 +20,7 @@ public interface SysUserMapper
      * @param username
      * @return
      */
-    public SysUser findByUsername(String username);
+    SysUser findByUsername(String username);
 
     /**
      * 根据用户id查询角色

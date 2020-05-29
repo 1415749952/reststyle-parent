@@ -1,14 +1,15 @@
 package cn.ccsu.dto;
 
-import cn.ccsu.commom.constraint.ValidateEnum;
-import cn.ccsu.commom.constraint.group.Update;
+import cn.ccsu.commom.constraint.validator.enums.ValidateEnum;
 import cn.ccsu.commom.enums.Sex;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,6 +37,7 @@ public class AccountDTO
     private String username;
 
     @NotBlank(message = "密码不能为空")
+    @Length(min = 6,max = 16,message = "密码长度为6-16位")
     private String password;
 
     private String name;
@@ -51,4 +53,6 @@ public class AccountDTO
 
     @ValidateEnum(clazz = Sex.class, method = "getValue", message = "sex参数错误")
     private String sex;
+    
+    private Date birthday;
 }
