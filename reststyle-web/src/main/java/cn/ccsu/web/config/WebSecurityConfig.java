@@ -1,14 +1,13 @@
 package cn.ccsu.web.config;
 
-import cn.ccsu.security.SysUserAuthenticationEntryPoint;
-import cn.ccsu.security.SysUserPermissionEvaluator;
-import cn.ccsu.security.filter.CustomAuthenticationFilter;
+import cn.ccsu.web.security.SysUserAuthenticationEntryPoint;
+import cn.ccsu.web.security.SysUserPermissionEvaluator;
+import cn.ccsu.web.security.filter.CustomAuthenticationFilter;
 import cn.ccsu.web.security.filter.ValidateCodeFilter;
-import cn.ccsu.security.handler.RestAuthAccessDeniedHandler;
-import cn.ccsu.security.handler.RestAuthFailureHandler;
-import cn.ccsu.security.handler.RestAuthSuccessHandler;
-import cn.ccsu.security.handler.RestLogoutSuccessHandler;
-import cn.ccsu.web.security.filter.ValidateCodeFilter;
+import cn.ccsu.web.security.handler.RestAuthAccessDeniedHandler;
+import cn.ccsu.web.security.handler.RestAuthFailureHandler;
+import cn.ccsu.web.security.handler.RestAuthSuccessHandler;
+import cn.ccsu.web.security.handler.RestLogoutSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
