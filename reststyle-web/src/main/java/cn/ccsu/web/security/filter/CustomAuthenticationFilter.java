@@ -1,6 +1,7 @@
 package cn.ccsu.web.security.filter;
 
-import cn.ccsu.security.MyHttpServletRequestWrapper;
+import cn.ccsu.web.security.MyHttpServletRequestWrapper;
+import cn.ccsu.web.security.MyHttpServletRequestWrapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.MediaType;
