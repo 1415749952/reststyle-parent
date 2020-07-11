@@ -1,4 +1,4 @@
-package cn.ccsu.security;
+package cn.ccsu.web.security;
 
 import org.apache.commons.io.IOUtils;
 

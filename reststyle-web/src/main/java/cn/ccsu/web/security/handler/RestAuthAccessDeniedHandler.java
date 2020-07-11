@@ -1,4 +1,4 @@
-package cn.ccsu.security.handler;
+package cn.ccsu.web.security.handler;
 
 import cn.ccsu.utils.JsonUtils.JacksonUtil;
 import cn.ccsu.utils.responseUtils.ResultCode;

@@ -1,4 +1,4 @@
-package cn.ccsu.security.handler;
+package cn.ccsu.web.security.handler;
 
 import cn.ccsu.domain.security.SysUser;
 import cn.ccsu.utils.JsonUtils.JacksonUtil;

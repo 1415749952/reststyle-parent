@@ -1,4 +1,4 @@
-package cn.ccsu.config;
+package cn.ccsu.web.config;
 
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package cn.ccsu.security;
+package cn.ccsu.web.security;
 
 import cn.ccsu.utils.responseUtils.ResultCode;
 import cn.ccsu.utils.responseUtils.ResultUtil;

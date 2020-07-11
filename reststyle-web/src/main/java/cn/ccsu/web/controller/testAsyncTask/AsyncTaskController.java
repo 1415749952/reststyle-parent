@@ -1,4 +1,4 @@
-package cn.ccsu.controller.testAsyncTask;
+package cn.ccsu.web.controller.testAsyncTask;
 
 import cn.ccsu.service.testAsyncTask.AsyncService;
 import cn.ccsu.utils.responseUtils.RestResult;

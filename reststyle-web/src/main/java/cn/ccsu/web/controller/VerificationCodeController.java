@@ -1,4 +1,4 @@
-package cn.ccsu.controller;
+package cn.ccsu.web.controller;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import org.springframework.beans.factory.annotation.Autowired;

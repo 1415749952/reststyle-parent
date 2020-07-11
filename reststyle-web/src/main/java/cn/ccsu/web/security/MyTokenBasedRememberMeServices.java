@@ -1,4 +1,4 @@
-package cn.ccsu.security;
+package cn.ccsu.web.security;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
