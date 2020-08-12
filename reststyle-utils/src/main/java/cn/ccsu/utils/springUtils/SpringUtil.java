@@ -30,7 +30,11 @@ public class SpringUtil implements ApplicationContextAware
         }
     }
 
-    //获取applicationContext
+    /**
+     * 获取applicationContext
+     *
+     * @return
+     */
     public static ApplicationContext getApplicationContext()
     {
         return applicationContext;
@@ -47,10 +51,9 @@ public class SpringUtil implements ApplicationContextAware
         return getApplicationContext().getBean(name);
     }
 
-    //通过class获取Bean.
 
     /**
-     * getBean
+     * getBean,通过class获取Bean.
      *
      * @param clazz clazz
      * @param <T>   T
@@ -95,6 +98,5 @@ public class SpringUtil implements ApplicationContextAware
         {
             throw new ClassNotFoundException();
         }
-
     }
 }
