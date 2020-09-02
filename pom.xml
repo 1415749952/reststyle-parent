@@ -13,6 +13,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>reststyle-parent</name>
     <description>Demo project for Spring Boot</description>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
 
     <modules>
         <module>reststyle-commom</module>
@@ -25,9 +29,7 @@
         <module>reststyle-scheduler</module>
     </modules>
 
-    <properties>
-        <java.version>11</java.version>
-    </properties>
+
 
     <build>
         <plugins>
