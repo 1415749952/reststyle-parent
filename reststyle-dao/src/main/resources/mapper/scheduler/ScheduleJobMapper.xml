@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ccsu.mapper.scheduler.ScheduleJobMapper">
+    <resultMap id="BaseResultMap" type="cn.ccsu.domain.table.ScheduleJob">
+        <!--@mbg.generated-->
+        <!--@Table schedule_job-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="bean_name" jdbcType="VARCHAR" property="beanName"/>
+        <result column="method_name" jdbcType="VARCHAR" property="methodName"/>
+        <result column="params" jdbcType="VARCHAR" property="params"/>
+        <result column="cron_expression" jdbcType="VARCHAR" property="cronExpression"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="job_group_id" jdbcType="VARCHAR" property="jobGroupId"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_user" jdbcType="VARCHAR" property="modifyUser"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="del_flag" jdbcType="VARCHAR" property="delFlag"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, title, bean_name, method_name, params, cron_expression, remark, `status`, job_group_id,
+        create_user, create_time, modify_user, modify_time, del_flag
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from schedule_job
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete
+        from schedule_job
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="cn.ccsu.domain.table.ScheduleJob">
+        <!--@mbg.generated-->
+        insert into schedule_job (id, title, bean_name,
+                                  method_name, params, cron_expression,
+                                  remark, `status`, job_group_id,
+                                  create_user, create_time, modify_user,
+                                  modify_time, del_flag)
+        values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{beanName,jdbcType=VARCHAR},
+                #{methodName,jdbcType=VARCHAR}, #{params,jdbcType=VARCHAR}, #{cronExpression,jdbcType=VARCHAR},
+                #{remark,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{jobGroupId,jdbcType=VARCHAR},
+                #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyUser,jdbcType=VARCHAR},
+                #{modifyTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="cn.ccsu.domain.table.ScheduleJob">
+        <!--@mbg.generated-->
+        insert into schedule_job
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="beanName != null">
+                bean_name,
+            </if>
+            <if test="methodName != null">
+                method_name,
+            </if>
+            <if test="params != null">
+                params,
+            </if>
+            <if test="cronExpression != null">
+                cron_expression,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="jobGroupId != null">
+                job_group_id,
+            </if>
+            <if test="createUser != null">
+                create_user,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="modifyUser != null">
+                modify_user,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="beanName != null">
+                #{beanName,jdbcType=VARCHAR},
+            </if>
+            <if test="methodName != null">
+                #{methodName,jdbcType=VARCHAR},
+            </if>
+            <if test="params != null">
+                #{params,jdbcType=VARCHAR},
+            </if>
+            <if test="cronExpression != null">
+                #{cronExpression,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="jobGroupId != null">
+                #{jobGroupId,jdbcType=VARCHAR},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                #{modifyUser,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.ccsu.domain.table.ScheduleJob">
+        <!--@mbg.generated-->
+        update schedule_job
+        <set>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="beanName != null">
+                bean_name = #{beanName,jdbcType=VARCHAR},
+            </if>
+            <if test="methodName != null">
+                method_name = #{methodName,jdbcType=VARCHAR},
+            </if>
+            <if test="params != null">
+                params = #{params,jdbcType=VARCHAR},
+            </if>
+            <if test="cronExpression != null">
+                cron_expression = #{cronExpression,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="jobGroupId != null">
+                job_group_id = #{jobGroupId,jdbcType=VARCHAR},
+            </if>
+            <if test="createUser != null">
+                create_user = #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyUser != null">
+                modify_user = #{modifyUser,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.ccsu.domain.table.ScheduleJob">
+        <!--@mbg.generated-->
+        update schedule_job
+        set title           = #{title,jdbcType=VARCHAR},
+            bean_name       = #{beanName,jdbcType=VARCHAR},
+            method_name     = #{methodName,jdbcType=VARCHAR},
+            params          = #{params,jdbcType=VARCHAR},
+            cron_expression = #{cronExpression,jdbcType=VARCHAR},
+            remark          = #{remark,jdbcType=VARCHAR},
+            `status`        = #{status,jdbcType=VARCHAR},
+            job_group_id    = #{jobGroupId,jdbcType=VARCHAR},
+            create_user     = #{createUser,jdbcType=VARCHAR},
+            create_time     = #{createTime,jdbcType=TIMESTAMP},
+            modify_user     = #{modifyUser,jdbcType=VARCHAR},
+            modify_time     = #{modifyTime,jdbcType=TIMESTAMP},
+            del_flag        = #{delFlag,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <select id="findByTitle" resultMap="BaseResultMap">
+        select *
+        from schedule_job
+        where title = #{title,jdbcType=VARCHAR}
+    </select>
+
+    <select id="findByBeanAndMethod" resultMap="BaseResultMap">
+        select *
+        from schedule_job
+        where bean_name = #{beanName,jdbcType=VARCHAR}
+        and method_name = #{methodName,jdbcType=VARCHAR}
+    </select>
+</mapper>

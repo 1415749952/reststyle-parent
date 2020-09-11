@@ -6,20 +6,19 @@ package cn.ccsu.commom.enums;
  *
  * @version 1.0
  * @author: TheFei
- * @Date: 2020-05-29
- * @Time: 10:42
+ * @Date: 2020-09-09
+ * @Time: 9:57 上午
  */
-public enum JobStatus
+public enum DelFlag
 {
-
     /**
-     * 已暂停
+     * 数据是存在的
      */
-    PAUSING("0", "已暂停"),
+    EXIST("0", "未删除"),
     /**
-     * 运行中
+     * 数据已经被删除
      */
-    RUNNING("1", "运行中");
+    HASDEL("1", "已删除");
 
     /**
      * 状态
@@ -31,21 +30,17 @@ public enum JobStatus
      */
     private String value;
 
-    JobStatus(String status, String value)
+    DelFlag(String status, String value)
     {
         this.status = status;
         this.value = value;
     }
-    /**
-     * 状态
-     */
+
     public String status()
     {
         return this.status;
     }
-    /**
-     * 状态描述
-     */
+
     public String value()
     {
         return this.value;

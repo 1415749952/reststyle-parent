@@ -1,11 +1,6 @@
-package cn.ccsu.dto;
+package cn.ccsu.domain.table;
 
-import cn.ccsu.commom.constraint.validator.enums.ValidCorn;
-import cn.ccsu.commom.constraint.validator.enums.ValidJson;
 import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
-import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,43 +8,37 @@ import java.util.Date;
  *
  * @version 1.0
  * @author: TheFei
- * @Date: 2020-05-29
- * @Time: 10:52
+ * @Date: 2020-09-08
+ * @Time: 5:50 下午
  */
 @Data
-public class JobInfoDTO
+public class ScheduleJob extends BaseEntity
 {
-
     /**
-     * 标题
+     * 任务的标题
      */
-    @NotBlank(message = "任务名称不能为空")
     private String title;
 
 
     /**
      * spring bean的名字
      */
-    @NotBlank(message = "URL地址不能为空")
     private String beanName;
 
     /**
      * 方法名字
      */
-    @NotBlank(message = "方法名字不能为空")
     private String methodName;
 
 
     /**
      * cron表达式
      */
-    @ValidCorn
     private String cronExpression;
 
     /**
      * 请求参数
      */
-    @ValidJson(message = "参数格式错误")
     private String params;
 
     /**
@@ -62,4 +51,8 @@ public class JobInfoDTO
      */
     private String jobGroupId;
 
+    /**
+     * 任务状态
+     */
+    private String status;
 }
