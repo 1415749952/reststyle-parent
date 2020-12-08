@@ -13,6 +13,11 @@ import org.quartz.CronExpression;
  */
 public class CornUtil
 {
+    /**
+     * 判断是不是Corn表达式
+     * @param value
+     * @return
+     */
     public static boolean isCorn(String value)
     {
         if (!CronExpression.isValidExpression(value))

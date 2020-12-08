@@ -84,10 +84,10 @@ public class RedisUtil
     /**
      * 设置过期时间
      *
-     * @param key
-     * @param timeout
-     * @param unit
-     * @return
+     * @param key     设置将要过期键
+     * @param timeout 时间长度
+     * @param unit    时间单位
+     * @return 是否成功
      */
     public Boolean expire(String key, long timeout, TimeUnit unit)
     {
@@ -97,9 +97,9 @@ public class RedisUtil
     /**
      * 设置过期时间
      *
-     * @param key
-     * @param date
-     * @return
+     * @param key  设置将要过期键
+     * @param date 过期时间
+     * @return 是否成功
      */
     public Boolean expireAt(String key, Date date)
     {
@@ -402,12 +402,12 @@ public class RedisUtil
      * 获取存储在哈希表中指定字段的值
      *
      * @param key
-     * @param field
+     * @param hashKey
      * @return
      */
-    public Object hGet(String key, String field)
+    public Object hGet(String key, String hashKey)
     {
-        return redisTemplate.opsForHash().get(key, field);
+        return redisTemplate.opsForHash().get(key, hashKey);
     }
 
     /**
@@ -425,14 +425,21 @@ public class RedisUtil
      * 获取所有给定字段的值
      *
      * @param key
-     * @param fields
+     * @param hashKeys
      * @return
      */
-    public List<Object> hMultiGet(String key, Collection<Object> fields)
+    public List<Object> hMultiGet(String key, Collection<Object> hashKeys)
     {
-        return redisTemplate.opsForHash().multiGet(key, fields);
+        return redisTemplate.opsForHash().multiGet(key, hashKeys);
     }
 
+    /**
+     * 添加哈希hash结构的数据到redis中
+     *
+     * @param key     键
+     * @param hashKey 哈希的key
+     * @param value   数据值
+     */
     public void hPut(String key, String hashKey, String value)
     {
         redisTemplate.opsForHash().put(key, hashKey, value);
@@ -460,50 +467,50 @@ public class RedisUtil
      * 删除一个或多个哈希表字段
      *
      * @param key
-     * @param fields
+     * @param hashKeys
      * @return
      */
-    public Long hDelete(String key, Object... fields)
+    public Long hDelete(String key, Object... hashKeys)
     {
-        return redisTemplate.opsForHash().delete(key, fields);
+        return redisTemplate.opsForHash().delete(key, hashKeys);
     }
 
     /**
      * 查看哈希表 key 中，指定的字段是否存在
      *
      * @param key
-     * @param field
+     * @param hashKey
      * @return
      */
-    public boolean hExists(String key, String field)
+    public boolean hExists(String key, String hashKey)
     {
-        return redisTemplate.opsForHash().hasKey(key, field);
+        return redisTemplate.opsForHash().hasKey(key, hashKey);
     }
 
     /**
      * 为哈希表 key 中的指定字段的整数值加上增量 increment
      *
      * @param key
-     * @param field
+     * @param hashKey
      * @param increment
      * @return
      */
-    public Long hIncrBy(String key, Object field, long increment)
+    public Long hIncrBy(String key, Object hashKey, long increment)
     {
-        return redisTemplate.opsForHash().increment(key, field, increment);
+        return redisTemplate.opsForHash().increment(key, hashKey, increment);
     }
 
     /**
      * 为哈希表 key 中的指定字段的整数值加上增量 increment
      *
      * @param key
-     * @param field
+     * @param hashKey
      * @param delta
      * @return
      */
-    public Double hIncrByFloat(String key, Object field, double delta)
+    public Double hIncrByFloat(String key, Object hashKey, double delta)
     {
-        return redisTemplate.opsForHash().increment(key, field, delta);
+        return redisTemplate.opsForHash().increment(key, hashKey, delta);
     }
 
     /**
@@ -1388,7 +1395,7 @@ public class RedisUtil
      */
     public Long zUnionAndStore(String key, Collection<String> otherKeys, String destKey)
     {
-        return redisTemplate.opsForZSet() .unionAndStore(key, otherKeys, destKey);
+        return redisTemplate.opsForZSet().unionAndStore(key, otherKeys, destKey);
     }
 
     /**

@@ -1,5 +1,7 @@
 package cn.ccsu.utils.StringUtils;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -93,5 +95,11 @@ public class SelfStringUtils
         }
         matcher.appendTail(sb);
         return sb.toString();
+    }
+
+    public static void main(String[] args)
+    {
+        String s = StringUtils.leftPad("0", 2, "0");
+        System.out.println(s);
     }
 }
